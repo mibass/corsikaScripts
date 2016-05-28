@@ -2,7 +2,7 @@
 
 #Paths
 SCRATCH_DIR=/pnfs/uboone/scratch/users/mibass/corsika #path where outputs will be stored
-outdir=/uboone/data/users/mibass/corsika/runs #path where generated dag files are stored
+outdir=/uboone/data/users/mibass/corsika/runs #path where generated dag/inputcard files are stored
 rundir=/uboone/app/users/mibass/corsika/corsikaScripts #path to corsikaScripts
 pathtocorsikaconverter=/uboone/app/users/mibass/corsika/corsikaConverter #path to corsikaConverter
 corsikarundir=/uboone/app/users/mibass/corsika-74003/run #path to corsika's run directory
@@ -16,7 +16,8 @@ seedIncrement=0 #number to increment random seed by, should be large to avoid ov
 pathtotar=${rundir}/exec.tar
 runscript=${rundir}/grid_runOne.sh
 outputStringTemplate=$SCRATCH_DIR/DAT%s_spills.root
-cfgsdir=${rundir}/cfgs/
+cfgsdir=${outdir}/cfgs/
+mkdir -p $cfgsdir
 
 DAGHeader () {
   echo "<parallel>" > $1
