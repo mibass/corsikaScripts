@@ -1,3 +1,4 @@
 exec.tar
+mygridruns.sh
 *.dag
 *.xml
