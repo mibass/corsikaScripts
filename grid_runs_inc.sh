@@ -6,9 +6,11 @@ outdir=/uboone/data/users/mibass/corsika/runs #path where generated dag/inputcar
 rundir=/uboone/app/users/mibass/corsika/corsikaScripts #path to corsikaScripts
 pathtocorsikaconverter=/uboone/app/users/mibass/corsika/corsikaConverter #path to corsikaConverter
 corsikarundir=/uboone/app/users/mibass/corsika-74003/run #path to corsika's run directory
+expgrp=uboone
 
 TEMPLATEFILE="corsika_input_TEMPLATE"
 USAGE_MODEL="DEDICATED,OPPORTUNISTIC"
+
 
 submittedJobs=0
 seedIncrement=0 #number to increment random seed by, should be large to avoid overlapping with previous jobs during makeup, THIS SHOULD NOT BE USED UNLESS YOU KNOW WHAT IT IS DOING
@@ -35,7 +37,7 @@ DoARun () {
   sed -e "s/_RUNNR_/$5/" -e "s/_NSHOW_/$1/" -e "s/_PRMPAR_/$2/" -e "s/_SEED1_/$seed1/" -e "s/_SEED2_/$seed2/" -e "s/_ERANGELOW_/$6/" $TEMPLATEFILE > ${cfgsdir}/tempconf$5
   printf -v datfile "DAT%06d" $5
   
-  echo jobsub -n -G uboone --OS=SL5,SL6 --resource-provides=usage_model=$USAGE_MODEL -f ${cfgsdir}/tempconf$5 -f ${pathtotar} file://${runscript} tempconf$5 $datfile $7 $8 $SCRATCH_DIR >> $outdagfile
+  echo jobsub -n -G $expgrp --OS=SL5,SL6 --resource-provides=usage_model=$USAGE_MODEL -f ${cfgsdir}/tempconf$5 -f ${pathtotar} file://${runscript} tempconf$5 $datfile $7 $8 $SCRATCH_DIR >> $outdagfile
   (( submittedJobs++ ))
 }
 
@@ -60,7 +62,7 @@ DoRunSet () {
 
   DAGFooter $dagoutputfile
   echo "wrote dag file $dagoutputfile"
-  jobsub_submit_dag -G uboone file://$dagoutputfile
+  jobsub_submit_dag -G $expgrp file://$dagoutputfile
 }
 
 
