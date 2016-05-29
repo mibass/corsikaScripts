@@ -35,7 +35,7 @@ export FLUPRO=$_CONDOR_SCRATCH_DIR/fluka
 ./${4} < $1 > ${2}_corsikaOutput 2> ${2}_corsikaOutput
 ./corsikaConverter $3 $2 > ${2}_converterOutput 2> ${2}_converterOutput
 echo ${2}_showers.root >flist.txt
-python sqShowers.py -p 15,25 -o flist.txt ${2}.db
+python sqShowers.py flist.txt ${2}.db
 
 #for log file
 ls -alh

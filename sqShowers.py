@@ -135,12 +135,15 @@ def main():
   parser = argparse.ArgumentParser()
   parser.add_argument('-b', '--batch', help="batch mode for root", action='store_true' )
   parser.add_argument('-o', '--onlyPopulated', help="only keep populated showers", action='store_true', default=False )
-  parser.add_argument('-p', '--particleids', help="Comma separated list of corsika particle IDs to keep (empty=all).", default="", )
+  parser.add_argument('-p', '--particleids', help="Comma separated list of corsika particle IDs to keep (empty=all).", default="" )
   parser.add_argument('filelist', help="File containing list of corsikeConverter showers outputs to process.")
   parser.add_argument('outputdb', help="Output db file to create.")
   args = parser.parse_args()
-  plist=tuple(int(x) for x in args.particleids.split(','))
-
+  if args.particleids!="":
+    plist=tuple(int(x) for x in args.particleids.split(','))
+  else:
+    plist=tuple()
+    
   #file='/uboone/data/users/mibass/corsika/ShowerInputTest/DAT020021_showers.root' #adds 10MeV cut
   files=data = [line.strip() for line in open(args.filelist, 'r')]
   f0 = TFile( files[0], 'r' )
