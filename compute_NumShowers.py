@@ -20,5 +20,5 @@ EfToOneMinusGamma=pow(highE,1+eslope)
 
 NumShowers=totalTimeWindow*(pi*a*K*(EfToOneMinusGamma - EiToOneMinusGamma)/(1+eslope))
 
-print "Number of Showers per spill =",int(ceil(NumShowers))
+print int(ceil(NumShowers))
 
