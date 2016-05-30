@@ -6,9 +6,7 @@
 #$3 is the K parameter to be passed to corsikaConverter
 #$4 is the executable name to use
 #$5 is the scratch directory full path
-source /grid/fermiapp/products/common/etc/setups.sh
-source /grid/fermiapp/products/uboone/setup_uboone.sh
-source /cvmfs/oasis.opensciencegrid.org/fermilab/products/common/etc/setup
+source /grid/fermiapp/products/larsoft/setup
 setup larsoft v05_10_00 -q e9:prof
 
 SCRATCH_DIR=${5}/
