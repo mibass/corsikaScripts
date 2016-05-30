@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #Paths
-SCRATCH_DIR=/pnfs/uboone/scratch/users/mibass/corsika #path where outputs will be stored
-outdir=/uboone/data/users/mibass/corsika/runs #path where generated dag/inputcard files are stored
-rundir=/uboone/app/users/mibass/corsika/corsikaScripts #path to corsikaScripts
-pathtocorsikaconverter=/uboone/app/users/mibass/corsika/corsikaConverter #path to corsikaConverter
-corsikarundir=/uboone/app/users/mibass/corsika-74003/run #path to corsika's run directory
-expgrp=uboone
+expgrp=dune
+SCRATCH_DIR=/pnfs/${expgrp}/scratch/users/mibass/corsika #path where outputs will be stored
+outdir=/${expgrp}/data/users/mibass/corsika/runs #path where generated dag/inputcard files are stored
+rundir=/${expgrp}/app/users/mibass/corsika/corsikaScripts #path to corsikaScripts
+pathtocorsikaconverter=/$expgrp/app/users/mibass/corsika/corsikaConverter #path to corsikaConverter
+corsikarundir=/$expgrp/app/users/mibass/corsika-74003/run #path to corsika's run directory
 
 TEMPLATEFILE="corsika_input_TEMPLATE"
 USAGE_MODEL="DEDICATED,OPPORTUNISTIC"
