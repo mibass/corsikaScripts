@@ -2,7 +2,7 @@
 source grid_runs_inc.sh
 
 #testrun
-DoRunSet 210001 2100010 1000 14 1.3 1.72e4 corsika74003Linux_QGSJET_fluka #p
+DoRunSet 210001 210010 1000 14 1.3 1.72e4 corsika74003Linux_QGSJET_fluka #p
 
 #FLUKA CMC RUNS #This set is down to 1.3 GeV/nucleon
 AREA=853 #m^2  (2.56+20+3)*(10.36+20+3)
