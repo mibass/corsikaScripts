@@ -2,7 +2,7 @@
 source grid_runs_inc.sh
 
 #testrun
-DoRunSet 210001 210010 1000 14 1.3 1.72e4 corsika74003Linux_QGSJET_fluka #p
+#DoRunSet 210001 210010 1000 14 1.3 1.72e4 corsika74003Linux_QGSJET_fluka #p
 
 #FLUKA CMC RUNS #This set is down to 1.3 GeV/nucleon
 AREA=853 #m^2  (2.56+20+3)*(10.36+20+3)
@@ -26,10 +26,10 @@ NSPILLS=10 # number of spills per run, adjust so that the max showers/job is aro
 
 #CMC Runs
 #DoRunSet 210001 210001 $((${NSPILLS}*$pshowers)) 14 1.3 1.72e4 corsika74003Linux_QGSJET_fluka #p
-#DoRunSet 310011 310100 $((${NSPILLS}*$alphashowers)) 402 5.2 9.2e3 corsika74003Linux_QGSJET_fluka #alpha
-#DoRunSet 410011 410100 $((${NSPILLS}*$Nshowers)) 1407 18.2 6.2e3 corsika74003Linux_QGSJET_fluka #N (14)
-#DoRunSet 510011 510100 $((${NSPILLS}*Mgshowers)) 2412 31.2 9.2e3 corsika74003Linux_QGSJET_fluka #Mg (24)
-#DoRunSet 610011 610100 $((${NSPILLS}*Feshowers)) 5626 72.8 6.2e3 corsika74003Linux_QGSJET_fluka #Fe (56)
+#DoRunSet 310001 310100 $((${NSPILLS}*$alphashowers)) 402 5.2 9.2e3 corsika74003Linux_QGSJET_fluka #alpha
+#DoRunSet 410001 410100 $((${NSPILLS}*$Nshowers)) 1407 18.2 6.2e3 corsika74003Linux_QGSJET_fluka #N (14)
+#DoRunSet 510001 510100 $((${NSPILLS}*Mgshowers)) 2412 31.2 9.2e3 corsika74003Linux_QGSJET_fluka #Mg (24)
+#DoRunSet 610001 610100 $((${NSPILLS}*Feshowers)) 5626 72.8 6.2e3 corsika74003Linux_QGSJET_fluka #Fe (56)
 
 
 
@@ -39,6 +39,14 @@ NSPILLS=10 # number of spills per run, adjust so that the max showers/job is aro
 #USAGE_MODEL="OPPORTUNISTIC"
 #DoRunSet 700001 701000 $((${NSPILLS}*1000000)) 14 1.3 1.8e4 corsika74003Linux_QGSJET_fluka #p
 
+
+
+#GHEISHA CMC runs
+#DoRunSet 220001 220100 $((${NSPILLS}*$pshowers)) 14 1.3 1.72e4 corsika74003Linux_QGSJET_gheisha #p
+#DoRunSet 320001 320100 $((${NSPILLS}*$alphashowers)) 402 5.2 9.2e3 corsika74003Linux_QGSJET_gheisha #alpha
+#DoRunSet 420001 420100 $((${NSPILLS}*$Nshowers)) 1407 18.2 6.2e3 corsika74003Linux_QGSJET_gheisha #N (14)
+#DoRunSet 520001 520100 $((${NSPILLS}*Mgshowers)) 2412 31.2 9.2e3 corsika74003Linux_QGSJET_gheisha #Mg (24)
+#DoRunSet 620001 620100 $((${NSPILLS}*Feshowers)) 5626 72.8 6.2e3 corsika74003Linux_QGSJET_gheisha #Fe (56)
 
 echo 
 echo Submitted $submittedJobs jobs.
